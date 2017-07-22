@@ -23,16 +23,16 @@ public class Solution8 {
                 "05886116467109405077541002256983155200055935729725" +
                 "71636269561882670428252483600823257530420752963450";
 
-        int largestInt = 0;
+        long largestInt = 0;
         int numLength = theNum.length();
         int adjacentLength = 13;
-        int multiplicate = 1;
+        long multiplicate = 1;
         int tryNumber = 1;
 
         for (int i = 0; i <= numLength - (adjacentLength); i++) {
             System.out.println("Try Number " + tryNumber);
             for (int j = 0; j < adjacentLength; j++) {
-                multiplicate *= Character.getNumericValue(theNum.charAt(i + j));
+                multiplicate *= Integer.parseInt("" + theNum.charAt(i + j));
             }
             //System.out.println(" is: " + multiplicate);
             if (multiplicate > largestInt) {
@@ -42,7 +42,6 @@ public class Solution8 {
             multiplicate = 1;
             tryNumber++;
         }
-
 
         System.out.println("The answer is: " + largestInt);
     }
