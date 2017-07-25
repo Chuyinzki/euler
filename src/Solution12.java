@@ -15,14 +15,15 @@ public class Solution12 {
         }
     }
 
-    private static ArrayList<Long> getFactors(long num) {
+    public static ArrayList<Long> getFactors(long num) {
         ArrayList<Long> retList = new ArrayList<>();
         Long end = Long.MAX_VALUE;
         for (int i = 1; i < end; i++)
             if (num % i == 0) {
                 retList.add((long) i);
                 end = num / i;
-                retList.add(end);
+                if (end != i)
+                    retList.add(end);
             }
         return retList;
     }
