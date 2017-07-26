@@ -4,7 +4,7 @@ public class Solution27 {
 
     public static void main(String[] args) throws Exception {
         //n^2 + an + b
-        //a < 1000 and b <= 1000
+        //|a| < 1000 and |b| <= 1000
         int[] sieve = Solution10.sieve(1000000);
         ArrayList<Integer> primes = new ArrayList<>();
         for (int num : sieve)
