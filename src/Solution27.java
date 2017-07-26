@@ -5,11 +5,7 @@ public class Solution27 {
     public static void main(String[] args) throws Exception {
         //n^2 + an + b
         //|a| < 1000 and |b| <= 1000
-        int[] sieve = Solution10.sieve(1000000);
-        ArrayList<Integer> primes = new ArrayList<>();
-        for (int num : sieve)
-            if (num != 0)
-                primes.add(num);
+        ArrayList<Integer> primes = getIntegerPrimes(1000000);
 
         int bestA = 0, bestB = 0, maxConsecutive = 0;
 
@@ -27,6 +23,15 @@ public class Solution27 {
 
         System.out.println(String.format("The longest found was length \"%d\" for a = %d and b = %d with product %d",
                 maxConsecutive, bestA, bestB, bestA * bestB));
+    }
+
+    static ArrayList<Integer> getIntegerPrimes(int howMany) {
+        int[] sieve = Solution10.sieve(howMany);
+        ArrayList<Integer> primes = new ArrayList<>();
+        for (int num : sieve)
+            if (num != 0)
+                primes.add(num);
+        return primes;
     }
 
     private static Result solutionHelper(ArrayList<Integer> primes, int b) {
